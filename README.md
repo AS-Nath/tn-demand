@@ -317,7 +317,7 @@ To check the pipeline in a couple of minutes, lower the number of simulations: i
 | `06b_calibration_by_year.R` cannot find `calibration_raw.rds` | Run `06_calibration.R` first. |
 | No plots appear in RStudio | Plots are saved to `figures/`; open the PNG files there. |
 
-The full write-up, with all tables and derivations, is in [`REPORT.md`](REPORT.md).
+The full write-up, with all tables and derivations, is in [`report/`](report/README.md).
 
 ---
 
