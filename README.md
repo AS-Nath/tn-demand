@@ -7,7 +7,7 @@ A probability and statistics case study in **R**. Instead of producing a single 
 The quantity of interest is
 
 $$
-p(C) = P\!\left(\max_t D_t > C\right) \approx \frac{1}{N}\sum_{i=1}^{N} \mathbf{1}\Big\{\max_t D_t^{(i)} > C\Big\},
+p(C) = P\left(\max_t D_t > C\right) \approx \frac{1}{N}\sum_{i=1}^{N} \mathbf{1}\left[\max_t D_t^{(i)} > C\right],
 $$
 
 where $D_t$ is daily peak demand, $C$ is a capacity threshold, and $D_t^{(i)}$ is the $i$-th of $N$ simulated demand paths.
@@ -90,7 +90,7 @@ Seasonality, trend, extremes, weather association and autocorrelation (`02_eda.R
 Log demand is regressed on calendar, weather and trend terms (`04_model.R`):
 
 $$
-\log D_t = \beta_0 + \beta_1 t + \text{weekday}_t + \gamma_h H_t + \gamma_f F_t + \gamma_c C_t + \gamma_\ell L_t + \sum_{k=1}^{3}\left[a_k \sin\tfrac{2\pi k d_t}{365.25} + b_k\cos\tfrac{2\pi k d_t}{365.25}\right] + f(T^{\max}_t) + \delta\,\overline{T}^{(3)}_t + \theta_1 \text{Dew}_t + \theta_2 \text{Solar}_t + \theta_3 \text{Cloud}_t + \varepsilon_t
+\log D_t = \beta_0 + \beta_1 t + \text{weekday}_t + \gamma_h H_t + \gamma_f F_t + \gamma_c C_t + \gamma_\ell L_t + \sum_{k=1}^{3}\left[a_k \sin\tfrac{2\pi k d_t}{365.25} + b_k\cos\tfrac{2\pi k d_t}{365.25}\right] + f(T^{\max}_t) + \delta \overline{T}^{(3)}_t + \theta_1 \text{Dew}_t + \theta_2 \text{Solar}_t + \theta_3 \text{Cloud}_t + \varepsilon_t
 $$
 
 where $H$ marks public holidays, $F$ the Diwali window, $C$ the COVID period, $L$ the hard 2020 lockdown, $f$ is a natural cubic spline with 4 degrees of freedom, and $\overline{T}^{(3)}$ is the 3-day mean of maximum temperature. Five specifications are compared (calendar only, linear temperature, spline, full model, and a GAM). Standard errors use Newey-West (HAC) corrections.
