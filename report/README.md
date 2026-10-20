@@ -2,6 +2,8 @@
 
 # Quantifying Uncertainty in Electricity Demand: A Monte Carlo Study of Tamil Nadu’s Power System
 
+**Probability and Statistics course project** · R only · Data: Hunt & Bloomfield, Zenodo 14983362 (CC BY 4.0)
+
 ## 1. Question
 
 A point forecast such as “peak demand will be 18,000 MW” hides the quantity a planner actually needs: the chance that demand exceeds available capacity. Let $D_{\text{peak}}$ be the annual maximum of daily peak demand and $C$ a threshold taken from the data (a previous record, a high percentile, or the outcome that actually occurred). We estimate
@@ -62,9 +64,10 @@ All models are for $Y_t = \log(D_t)$, where $D_t$ is daily peak demand, trained 
 
 
 $$
-Y_t = \beta_0 + \beta_1 t_{\text{years}} + \text{dow}_t + \text{holiday}_t + \text{festival}_t + \text{covid}_t + \text{lockdown}_t
-+ \sum_{k=1}^{3} (a_k \sin k\omega t + b_k \cos k\omega t) + f(\text{weather}_t) + \varepsilon_t.
+Y_t = \beta_0 + \beta_1 t_{\text{years}} + \text{dow}_t + \text{holiday}_t + \text{festival}_t + \text{covid}_t + \text{lockdown}_t + \sum_{k=1}^{3}\left(a_k \sin k\omega t + b_k \cos k\omega t\right) + f(\text{weather}_t) + \varepsilon_t
 $$
+
+where $\omega = 2\pi/365.25$ (annual seasonality via three Fourier pairs), and $f$ collects the weather terms listed below.
 
 
 | Model | Weather | Adj. $R^2$ | Test RMSE (MW) | Test MAPE |
@@ -79,7 +82,7 @@ Newey–West HAC standard errors (14 lags) on M4:
 
 - Coefficients are on the log scale; effects below are $100(e^{\hat\beta}-1)$ percent. Trend: +1.96% per year ($t=12.5$).
 - Sunday -9.2%, fixed-date public holiday -9.5%, Diwali window -16.3%, and the hard 2020 lockdown -23.1% (lockdown indicator plus the broader COVID indicator).
-- Natural spline in $t_{\max}$ and the 3-day rolling maximum are all positive and significant; dewpoint is negative (humid, cloudy days after controlling for temperature).
+- Natural spline in $t_{\max}$ and the 3-day rolling mean of maximum temperature are all positive and significant; dewpoint is negative (humid, cloudy days after controlling for temperature).
 
 **Diagnostics (training residuals).** Skewness $-0.60$, kurtosis $5.75$ (heavier tails than Gaussian). AR(1) $= 0.67$. Breusch–Pagan and Durbin–Watson / Ljung–Box tests all reject iid homoscedastic errors ($p \ll 0.001$). Residual SD is largest in May (0.070 on the log scale) and smallest in February (0.033). The Monte Carlo engine therefore allows month-specific scale, AR(1) on standardised residuals, and Gaussian / $t_5$ / residual-bootstrap shocks.
 
