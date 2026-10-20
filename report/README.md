@@ -2,8 +2,6 @@
 
 # Quantifying Uncertainty in Electricity Demand: A Monte Carlo Study of Tamil Nadu’s Power System
 
-**Probability and Statistics course project** · R only · Data: Hunt & Bloomfield, Zenodo 14983362 (CC BY 4.0)
-
 ## 1. Question
 
 A point forecast such as “peak demand will be 18,000 MW” hides the quantity a planner actually needs: the chance that demand exceeds available capacity. Let $D_{\text{peak}}$ be the annual maximum of daily peak demand and $C$ a threshold taken from the data (a previous record, a high percentile, or the outcome that actually occurred). We estimate

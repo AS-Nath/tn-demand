@@ -1,6 +1,6 @@
 # Quantifying Uncertainty in Electricity Demand: A Monte Carlo Study of Tamil Nadu's Power System
 
-A probability and statistics case study in **R**. Instead of producing a single demand forecast, it estimates the *distribution* of plausible peak demand and the probability that demand exceeds a given capacity, then tests whether those probabilities can be trusted.
+A case study conducted in **R**. Instead of producing a single demand forecast, it estimates the *distribution* of plausible peak demand and the probability that demand exceeds a given capacity, then tests whether those probabilities can be trusted.
 
 > **Research question.** How reliably can we estimate high-demand days from historical electricity and weather data, and how does accounting for uncertainty change our assessment of peak-demand risk?
 
@@ -325,6 +325,6 @@ The full write-up, with all tables and derivations, is in [`report/`](report/REA
 
 **Data:** Hunt, K. and Bloomfield, H. (2025). *Daily electricity demand data for Indian states (2014–2024).* Zenodo. https://doi.org/10.5281/zenodo.14983362 (CC BY 4.0).
 
-**Author:** Aditya Shankar Nath, Vellore Institute of Technology. Probability and Statistics course project.
-
-**Code licence:** add a `LICENSE` file of your choice (MIT is a common default for coursework).
+**Authors:** 
+Aditya Shankar Nath
+Garv Arora
