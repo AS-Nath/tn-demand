@@ -324,6 +324,6 @@ The full write-up, with all tables and derivations, is in [`report/`](report/REA
 ## Dataset Citation  
 Hunt, K. and Bloomfield, H. (2025). *Daily electricity demand data for Indian states (2014–2024).* Zenodo. https://doi.org/10.5281/zenodo.14983362 (CC BY 4.0).
 
-**Authors:**  
+## Authors   
 *Aditya Shankar Nath*  
 *Garv Arora*
